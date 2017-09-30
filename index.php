@@ -3,7 +3,7 @@ $ip = $_SERVER['REMOTE_ADDR'];
 $arp = exec("arp -a $ip"); // linux only?
 
 $row = explode(' ', $arp);
-$macAddr = $row[3]
+$macAddr = $row[3];
 
 ?>
 
@@ -26,21 +26,21 @@ $macAddr = $row[3]
     </h1>
   </header>
   <p>
-    Welcome <!-- (<?php  echo 'Mac: ' . $macAddr; ?>) --> to AIOSecurity. Please select your mode of access...
+    Welcome <!-- (<?php echo 'Mac: ' . $macAddr; ?>) --> to AIOSecurity. Please select your mode of access...
 
   </p>
   <form required>
     <div class="row">
-      <input type="radio" title="Tor" id="itor" name="prot" value="tor" class="one column" />
+      <input type="checkbox" title="Tor" id="itor" name="tor" class="one column" />
       <label for="itor" class="five columns">Reroute all traffic over Tor</label>
     </div>
     <div class="row">
-      <input type="radio" title="Block all non https traffic" class="one column" id="iblock" name="prot" value="baut" />
+      <input type="checkbox" title="Block all non https traffic" class="one column" id="iblock" name="bssl" />
       <label for="iblock" class="five columns">Block unencrypted connections</label>
     </div>
      <div class="row">
       <!-- id ad* could be blocked by Adblockers -->
-      <input type="radio" title="Block ads" class="one column" id="blad" name="prot" value="adblock" />
+      <input type="checkbox" title="Block ads" class="one column" id="blad" name="blad" />
       <label for="blad" class="five columns">Block advertisements</label>
     </div>
     <br />
