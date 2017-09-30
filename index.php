@@ -1,7 +1,10 @@
 <?php
 $ip = $_SERVER['REMOTE_ADDR'];
-$arp = system("arp -a $ip"); // linux only?
-preg_match('at ([a-fA-F0-9]*)', $arp, $arpout);
+$arp = exec("arp -a $ip"); // linux only?
+
+$row = explode(' ', $arp);
+$macAddr = $row[3]
+
 ?>
 
 <!DOCTYPE html>
@@ -19,22 +22,29 @@ preg_match('at ([a-fA-F0-9]*)', $arp, $arpout);
 <body>
   <header>
     <h1>
-        <a href="index.html" class="unsta">AioSecurity</a>
+        <a href="index.html" class="unsta">AIOSecurity</a>
     </h1>
   </header>
   <p>
-    Welcome (<?php  echo 'Mac: ' . $arpout; ?>) to AioSecurity. Please chose an option...
+    Welcome (<?php  echo 'Mac: ' . $macAddr; ?>) to AIOSecurity. Please select your mode of access...
 
   </p>
   <form required>
     <div class="row">
       <input type="radio" title="Tor" id="itor" name="prot" value="tor" class="one column" />
-      <label for="itor" class="one column">Tor</label>
+      <label for="itor" class="five columns">Tor</label>
     </div>
     <div class="row">
-      <input type="radio" title="Tor" class="one column" id="iblock" name="prot" value="baut" />
-      <label for="iblock" class="two columns">Block all unencrypted traffic</label>
+      <input type="radio" title="Block all non https traffic" class="one column" id="iblock" name="prot" value="baut" />
+      <label for="iblock" class="five columns">Block all unencrypted traffic</label>
     </div>
+     <div class="row">
+      <!-- id ad* could be blocked by Adblockers -->
+      <input type="radio" title="Block ads" class="one column" id="blad" name="prot" value="adblock" />
+      <label for="blad" class="two columns">Block ads</label>
+    </div>
+    <br />
+
     <div class="row">
       <input type="submit" />
     </div>
