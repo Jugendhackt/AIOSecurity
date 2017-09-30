@@ -1,0 +1,12 @@
+body {
+  padding: 20px 20px 20px 20px;
+}
+
+.unsta {
+  text-decoration: none;
+  color: #ffe500;
+}
+
+.unsta:hover {
+  color: #d8bf2f;
+}
