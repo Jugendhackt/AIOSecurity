@@ -10,3 +10,7 @@ body {
 .unsta:hover {
   color: #d8bf2f;
 }
+
+.hidden {
+  display: none;
+}

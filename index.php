@@ -29,7 +29,7 @@ $macAddr = $row[3];
     Welcome <!-- (<?php echo 'Mac: ' . $macAddr; ?>) --> to AIOSecurity. Please select your mode of access...
 
   </p>
-  <form required>
+  <form required action="todb.php" method="POST">
     <div class="row">
       <input type="checkbox" title="Tor" id="itor" name="tor" class="one column" />
       <label for="itor" class="five columns">Reroute all traffic over Tor</label>
@@ -43,6 +43,7 @@ $macAddr = $row[3];
       <input type="checkbox" title="Block ads" class="one column" id="blad" name="blad" />
       <label for="blad" class="five columns">Block advertisements</label>
     </div>
+    <div class="hidden"><input type="text" name="macaddr" value="<?php echo $macAddr; ?>"/></div>
     <br />
 
     <div class="row">
